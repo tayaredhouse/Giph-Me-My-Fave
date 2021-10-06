@@ -2,13 +2,18 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import LoadComponent from './LoadComponent';
 import axios from 'axios';
+import AddFavorites from './AddFavorites';
 
-function Giphy() {
+function Giphy(props) {
+
+    const FavoriteComponent = props.favoriteComponent;
     //All of the states for this app
     const [giphys, setGiphys] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [search, setSearch] = useState('');
+
+
 
 //main async call for trending data, loads on page load w/page load logic
     useEffect(() => {
@@ -49,11 +54,15 @@ function Giphy() {
         if(loading) {
             return <LoadComponent />
         }
-        return giphys.map(el => {
+        return giphys.map(giphy => {
             return (
-                <div className="gif" key ={el.id}>
-                    <img src={el.images.fixed_height.url} />
-                    <div className="overlay"><i class="fas fa-heart"></i></div>
+                <div className="gif" key ={giphy.id}>
+                    <img src={giphy.images.fixed_height.url} />
+                    <div 
+                    className="overlay" 
+                    onClick={() => props.handleFavoritesClick(giphy)}>
+                        <AddFavorites />
+                    </div>
                 </div>
             )
         })
