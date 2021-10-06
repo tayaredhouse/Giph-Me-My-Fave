@@ -53,6 +53,7 @@ function Giphy() {
             return (
                 <div className="gif" key ={el.id}>
                     <img src={el.images.fixed_height.url} />
+                    <div className="overlay"><i class="fas fa-heart"></i></div>
                 </div>
             )
         })
@@ -111,7 +112,7 @@ const handleSubmit = async (e) => {
                 </form>
             </nav>
             <div className="gifs">
-            {gifrender()}
+                {gifrender()}
             </div>
         </div>
     )
