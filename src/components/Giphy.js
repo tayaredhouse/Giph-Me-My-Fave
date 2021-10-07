@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import LoadComponent from './LoadComponent';
 import axios from 'axios';
 import AddFavorites from './AddFavorites';
+import RemoveFavorites from './RemoveFavorites';
+import Favorites from './Favorites';
 
-function Giphy(props) {
+function Giphy({setFavorites, handleFavoritesClick, handleRemovalClick, favorites}) {
 
-    const FavoriteComponent = props.favoriteComponent;
     //All of the states for this app
     const [giphys, setGiphys] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -30,7 +31,7 @@ function Giphy(props) {
             //On product build they monitor and let you know if anything
             //goes wrong.
             api_key: 'UdbKWcAMuHkkVzokIli4Ko0crbjYKHHh',
-            limit: 300
+            limit: 50
           }
         });
 
@@ -47,6 +48,11 @@ function Giphy(props) {
       fetchData();
     }, [] );
 
+    useEffect(() => {
+        const giphyFavorites = JSON.parse(localStorage.getItem('react-giphy-app-favorites'));
+        setFavorites(giphyFavorites);
+      }, []);
+
     //renders the giph & maps out data
 
     const gifrender = () => {
@@ -57,10 +63,11 @@ function Giphy(props) {
         return giphys.map(giphy => {
             return (
                 <div className="gif" key ={giphy.id}>
-                    <img src={giphy.images.fixed_height.url} />
+                    <img src={giphy.images.fixed_height.url} alt=""
+                    onClick={() => handleFavoritesClick(giphy)}/>
                     <div 
-                    className="overlay" 
-                    onClick={() => props.handleFavoritesClick(giphy)}>
+                    className="overlay"
+                    onClick={() => handleFavoritesClick(giphy)} >
                         <AddFavorites />
                     </div>
                 </div>
@@ -107,6 +114,7 @@ const handleSubmit = async (e) => {
         setLoading(false);
     };
 
+   
 
 //main page rendering logic
     return (
@@ -120,6 +128,19 @@ const handleSubmit = async (e) => {
                     <button onClick={handleSubmit} type="submit" className="btn-primary">Go!</button>
                 </form>
             </nav>
+            
+            
+            <div className="container-fluid favorites">
+                <div className="row d-flex align-items-center mt-4 mb-4">
+                    
+                        <Favorites 
+                        giphys={favorites}
+                        removeFavoriteComponent={RemoveFavorites}
+                        handleRemovalClick={handleRemovalClick}
+                         />
+                    
+                </div>    
+            </div>
             <div className="gifs">
                 {gifrender()}
             </div>
