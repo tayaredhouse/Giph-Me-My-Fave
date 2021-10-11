@@ -4,7 +4,7 @@ This was a personal project that I made to make it easy for people to find and s
 
 The original page loads with trending giphys and then updates the API call as you search for different giphys.
 
-## Technologies used
+## Technologies Used
 
 This app makes use of React, Axios for async API calls, Font Awesome for emoticons, Bootstrap CSS v5.0 for side scrolling favorites, and React's useState to update the state.
 
