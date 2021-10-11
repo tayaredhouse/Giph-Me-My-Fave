@@ -17,11 +17,12 @@ function App() {
       localStorage.setItem('react-giphy-app-favorites', JSON.stringify(items));
     }
 
-  //creates a new array for favorite movies list
+  //creates a new array for favorite giphs list
   //checks to make sure there are no duplicates
   const addFavoriteGiph = (giphy) => {
-    const faves = favorites;
-    const newFaveList = [...favorites, giphy];
+    const faves = [...favorites];
+    const newFaveList = [...(favorites || []) , giphy];
+
 
     if(faves.includes(giphy)) {
       alert("Giphy already added");
