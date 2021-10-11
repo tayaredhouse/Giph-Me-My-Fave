@@ -121,7 +121,7 @@ const handleSubmit = async (e) => {
         <div>
             {renderError()}
             <nav>
-                <h1><i class="far fa-folder-open"></i> Giph Me My Fave</h1>
+                <h1><i className="far fa-folder-open"></i> Giph Me My Fave</h1>
                 <form role="search">
                     <input value={search} onChange={handleSearch} type="text" placeholder="Search...">
                     </input>

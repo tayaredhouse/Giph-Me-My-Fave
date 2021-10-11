@@ -3,6 +3,7 @@ import './App.css';
 import AddFavorites from "./components/AddFavorites";
 import { useState } from "react";
 import RemoveFavorites from "./components/RemoveFavorites";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
       removeFavoriteComponent={RemoveFavorites}
       handleRemovalClick={removeFavorite}
       />  
+
 
     </div>
   );

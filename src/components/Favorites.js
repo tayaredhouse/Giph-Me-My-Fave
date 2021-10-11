@@ -7,9 +7,7 @@ function Favorites({giphys, handleRemovalClick}) {
 
     const faverender = () => {
         if (giphys == null) {
-            return (
-                <div className="no-faves">No Favorites Yet!</div>
-            )
+            console.log("No Giphys Added Yet");
         } else {
         return giphys.map(giphy => {
             return (
@@ -35,7 +33,7 @@ function Favorites({giphys, handleRemovalClick}) {
 
     return (
         <div>
-            <h2><i class="fas fa-heart"></i> My Faves <i class="fas fa-heart"></i></h2>
+            <h2><i className="fas fa-heart"></i> My Faves <i class="fas fa-heart"></i></h2>
             <p>Click giphys to add favorites!</p>
             
                     <div className='image-container d-inline-flex justify-content-start m-3'>
