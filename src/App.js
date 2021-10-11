@@ -2,7 +2,6 @@ import Giphy from "./components/Giphy";
 import './App.css';
 import AddFavorites from "./components/AddFavorites";
 import { useState } from "react";
-import Favorites from "./components/Favorites";
 import RemoveFavorites from "./components/RemoveFavorites";
 
 

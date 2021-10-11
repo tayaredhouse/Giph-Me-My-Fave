@@ -41,7 +41,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
   
 }
 
@@ -95,3 +95,29 @@ input {
 
 
 
+@media only screen and (max-width: 412px)  {
+
+  nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+  }
+
+  h1 {
+    font-size: 25px;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+
+input {
+  width: 140px;
+  margin-right: 0;
+  margin-bottom: 10px;
+  }
+
+img {
+  height: 120px;
+}
+}

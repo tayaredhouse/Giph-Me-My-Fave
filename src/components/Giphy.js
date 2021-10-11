@@ -53,7 +53,7 @@ function Giphy({setFavorites, handleFavoritesClick, handleRemovalClick, favorite
         setFavorites(giphyFavorites);
       }, []);
 
-    //renders the giph & maps out data
+    //renders the giph & maps out data from trending
 
     const gifrender = () => {
 
@@ -91,7 +91,7 @@ const handleSearch = (e) => {
     setSearch(e.target.value)
 }
 
-//since first render pulls from trending, second axios call
+//since first acios pulls from trending, second axios call
 //is for search logic & loading
 const handleSubmit = async (e) => {
     e.preventDefault();
@@ -121,8 +121,8 @@ const handleSubmit = async (e) => {
         <div>
             {renderError()}
             <nav>
-                <h1><i class="far fa-folder-open"></i>Giph Me My Fave</h1>
-                <form>
+                <h1><i class="far fa-folder-open"></i> Giph Me My Fave</h1>
+                <form role="search">
                     <input value={search} onChange={handleSearch} type="text" placeholder="Search...">
                     </input>
                     <button onClick={handleSubmit} type="submit" className="btn-primary">Go!</button>
