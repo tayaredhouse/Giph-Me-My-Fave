@@ -20,7 +20,7 @@ function App() {
   //creates a new array for favorite giphs list
   //checks to make sure there are no duplicates
   const addFavoriteGiph = (giphy) => {
-    const faves = [...favorites];
+    const faves = [...(favorites || [])];
     const newFaveList = [...(favorites || []) , giphy];
 
 
