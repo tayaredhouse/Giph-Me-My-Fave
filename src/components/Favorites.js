@@ -6,7 +6,7 @@ function Favorites({giphys, handleRemovalClick}) {
 
 
     const faverender = () => {
-        if (giphys ==null) {
+        if (giphys == null) {
             return (
                 <div>No Favorites Yet!</div>
             )
